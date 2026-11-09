@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b0b0d">
+<meta name="description" content="LOLLY AI DRAMA STUDIO - studio produksi micro drama AI">
+<link rel="manifest" href="manifest.webmanifest">
+<title>LOLLY AI DRAMA STUDIO</title>
+<style>
+:root{--bg:#09090b;--panel:#151518;--panel2:#1d1d22;--gold:#d6ad60;--gold2:#f1d99b;--muted:#a7a7ad;--line:#333239;--white:#f7f5ef}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top,#242018 0,#0b0b0d 38%,#09090b 100%);color:var(--white);font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+header{padding:24px 18px 16px;text-align:center;border-bottom:1px solid #3b3222;background:#0b0b0de8;position:sticky;top:0;z-index:5;backdrop-filter:blur(12px)}
+.logo{font-size:12px;letter-spacing:4px;color:var(--gold);font-weight:800}.brand{font-size:25px;line-height:1.15;font-weight:900;margin:7px 0}.tag{color:var(--muted);font-size:12px}
+main{max-width:760px;margin:auto;padding:18px 14px 80px}.hero{border:1px solid #5a4728;border-radius:18px;padding:18px;background:linear-gradient(135deg,#211b11,#121214 65%);margin-bottom:16px}.hero h2{margin:0 0 5px;color:var(--gold2);font-size:20px}.hero p{margin:0;color:#d0c8b8;font-size:13px}
+.tabs{display:flex;gap:7px;overflow:auto;margin:14px 0}.tab{border:1px solid var(--line);background:#141417;color:#ddd;border-radius:99px;padding:9px 13px;white-space:nowrap;font-weight:650}.tab.active{background:var(--gold);color:#17130b;border-color:var(--gold)}
+.card{background:linear-gradient(180deg,#19191d,#121215);border:1px solid var(--line);border-radius:16px;padding:16px;margin:12px 0}.card h3{margin:0 0 12px;font-size:16px;color:var(--gold2)}
+label{display:block;color:#dedbd3;font-size:13px;font-weight:650;margin:12px 0 6px}input,select,textarea{width:100%;background:#0d0d10;color:#fff;border:1px solid #45434a;border-radius:10px;padding:12px;font:inherit;outline:none}textarea{min-height:82px;resize:vertical}input:focus,select:focus,textarea:focus{border-color:var(--gold)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.btn{border:0;border-radius:12px;background:var(--gold);color:#17130b;font-weight:850;padding:13px 16px;font-size:14px;width:100%;margin-top:12px}.btn.secondary{background:#26252a;color:#f4e4c0;border:1px solid #5c4b2d}.btn.small{width:auto;margin:0;padding:8px 11px;font-size:12px}.hint{color:var(--muted);font-size:12px}.scene{border:1px solid #49402f;background:#101013;border-radius:13px;padding:13px;margin:10px 0}.scene-top{display:flex;justify-content:space-between;gap:8px;color:var(--gold2);font-weight:800}.scene p{margin:7px 0;color:#e6e2d9;font-size:13px}.scene .prompt{color:#bcb9c2;font-size:12px}.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.hidden{display:none!important}.status{padding:9px 11px;border-radius:9px;background:#1b281d;color:#b9e6be;font-size:12px;margin-top:10px}.footer{text-align:center;color:#777;font-size:11px;padding:25px 10px}
+</style>
+</head>
+<body>
+<header><div class="logo">LOLLY CREATIVE</div><div class="brand">AI DRAMA STUDIO</div><div class="tag">ONE-CLICK MICRO DRAMA • ANDROID EDITION</div></header>
+<main>
+<section class="hero"><h2>Ubah ide menjadi rancangan film 60 detik</h2><p>Buat cerita, dialog, 8 adegan, prompt visual, dan paket produksi dalam satu langkah.</p></section>
+<nav class="tabs">
+<button class="tab active" data-tab="create">✦ Buat Drama</button><button class="tab" data-tab="result">🎬 Hasil Produksi</button><button class="tab" data-tab="guide">ⓘ Panduan</button>
+</nav>
+<section id="create">
+<div class="card">
+<h3>01 · Konsep Film</h3>
+<label>Judul drama</label><input id="title" value="DI BALIK SENYUMAN" placeholder="Masukkan judul drama">
+<label>Ide cerita / premis</label><textarea id="idea" placeholder="Contoh: Seorang wanita terlihat bahagia, tetapi menyimpan rahasia besar...">Seorang wanita selalu terlihat kuat dan tersenyum di depan orang lain, padahal diam-diam ia menanggung banyak masalah sendirian.</textarea>
+<div class="grid">
+<div><label>Genre</label><select id="genre"><option>Drama keluarga</option><option>Romansa</option><option>Pengkhianatan</option><option>Inspiratif</option><option>Misteri</option><option>Horor ringan</option><option>Persahabatan</option></select></div>
+<div><label>Nuansa</label><select id="mood"><option>Emosional dan realistis</option><option>Menegangkan</option><option>Haru dan menyentuh</option><option>Romantis</option><option>Penuh kejutan</option></select></div>
+</div>
+<label>Nama pemeran utama</label><input id="character" value="Alana" placeholder="Nama karakter">
+<label>Deskripsi karakter / referensi wajah</label><textarea id="look">Wanita Indonesia dewasa, wajah natural, rambut hitam panjang, penampilan sederhana dan elegan. Pertahankan wajah, usia, rambut, dan pakaian tetap konsisten di semua adegan.</textarea>
+<label>Lokasi utama</label><input id="location" value="Kota Indonesia, rumah sederhana dan jalan perkotaan">
+<label>Gaya visual</label><select id="visual"><option>Photorealistic cinematic, ultra realistic</option><option>Film drama natural, documentary realism</option><option>Soft cinematic, warm lighting</option><option>Dark cinematic, dramatic lighting</option></select>
+<button class="btn" id="generate">✨ GENERATE DRAMA OTOMATIS</button>
+<div class="hint">Durasi tetap 60 detik · 8 adegan · sekitar 7–8 detik per adegan.</div>
+<div id="status" class="status hidden"></div>
+</div>
+</section>
+<section id="result" class="hidden">
+<div class="card"><h3>02 · Paket Produksi Film</h3><div id="summary" class="hint">Belum ada drama dibuat. Buka tab Buat Drama.</div>
+<div class="row"><button class="btn secondary small" id="copyAll">Salin semua prompt</button><button class="btn secondary small" id="downloadTxt">Unduh TXT</button><button class="btn secondary small" id="downloadJson">Unduh JSON</button></div></div>
+<div class="card"><h3>03 · Naskah & Storyboard</h3><div id="scenes"></div></div>
+</section>
+<section id="guide" class="hidden">
+<div class="card"><h3>Cara menggunakan</h3>
+<p>1. Isi judul, ide cerita, karakter, dan lokasi.</p><p>2. Tekan <b>Generate Drama Otomatis</b>.</p><p>3. Buka tab Hasil Produksi untuk melihat 8 adegan, dialog, dan prompt video.</p><p>4. Salin prompt adegan ke layanan pembuat video yang menyediakan akses gratis.</p><p>5. Unduh klip, lalu susun berurutan di editor video. Tambahkan subtitle dan musik yang boleh digunakan.</p>
+<h3>Batasan versi gratis</h3><p class="hint">Aplikasi ini berjalan lokal dan tidak memakai API berbayar. Fitur one-click otomatis membuat paket cerita dan prompt, bukan merender 8 video AI secara otomatis. Rendering video membutuhkan layanan generator eksternal; kuota gratis dan ketentuannya dapat berubah.</p>
+</div>
+</section>
+<div class="footer">LOLLY AI DRAMA STUDIO · Versi Android PWA 1.0 · Proyek lokal pengguna</div>
+</main>
+<script>
+const $=id=>document.getElementById(id);let project=null;
+document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));b.classList.add('active');['create','result','guide'].forEach(x=>$(x).classList.toggle('hidden',x!==b.dataset.tab));}));
+const beats=[
+{n:'Pembuka / Hook',visual:'Close-up wajah karakter. Ia tersenyum tipis di hadapan orang lain, suasana tampak normal.',dialog:'“Tidak apa-apa. Aku baik-baik saja.”'},
+{n:'Tanda masalah',visual:'Karakter berjalan sendiri. Ponsel menampilkan beberapa pesan yang belum terjawab.',dialog:'“Ada hal-hal yang tidak bisa kuceritakan kepada siapa pun.”'},
+{n:'Tekanan meningkat',visual:'Di tempat kerja atau rumah, karakter tetap membantu orang lain meski tampak lelah.',dialog:'“Semua orang membutuhkan aku untuk tetap kuat.”'},
+{n:'Momen sendirian',visual:'Karakter masuk ke ruangan sepi, menutup pintu perlahan, lalu menarik napas panjang.',dialog:'“Tapi siapa yang bertanya apakah aku sanggup?”'},
+{n:'Konflik batin',visual:'Close-up mata berkaca-kaca. Karakter menahan tangis dan melihat pantulan dirinya di cermin.',dialog:'“Aku juga ingin dimengerti.”'},
+{n:'Titik balik',visual:'Karakter duduk, menghapus air mata, lalu menggenggam tangannya sendiri dengan tegar.',dialog:'“Mungkin kali ini aku harus memilih diriku sendiri.”'},
+{n:'Keputusan',visual:'Karakter membuka jendela atau melangkah keluar menyambut cahaya pagi.',dialog:'“Meminta waktu untuk pulih bukan berarti menyerah.”'},
+{n:'Penutup / Cliffhanger',visual:'Karakter menatap kamera dengan ekspresi lebih tenang. Sisakan ruang visual untuk teks penutup.',dialog:'“Besok, aku akan mulai lagi. Kali ini, untuk diriku.”'}
+];
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function makeProject(){
+ const v={title:$('title').value.trim()||'Drama Tanpa Judul',idea:$('idea').value.trim(),genre:$('genre').value,mood:$('mood').value,character:$('character').value.trim()||'Karakter utama',look:$('look').value.trim(),location:$('location').value.trim(),visual:$('visual').value};
+ const scenes=beats.map((b,i)=>({scene:i+1,time:`${i*7.5}-${(i+1)*7.5} detik`,name:b.n,visual:b.visual,dialog:b.dialog,prompt:`${v.visual}. Vertical 9:16 cinematic video, 4K look, ${b.visual} Main character: ${v.character}. Character appearance: ${v.look}. Location: ${v.location}. Genre: ${v.genre}; mood: ${v.mood}. Story premise: ${v.idea}. Natural human movement, realistic facial expressions, consistent character identity, coherent lighting, detailed environment, professional film composition. No watermark, no subtitles, no text, no logo.`}));
+ return {...v,duration:'60 detik',format:'9:16 vertical',scenes,createdAt:new Date().toISOString()};
+}
+function render(){
+ $('summary').innerHTML=`<b>${escapeHtml(project.title)}</b><br>${escapeHtml(project.genre)} · ${escapeHtml(project.duration)} · 9:16 vertical<br><br>${escapeHtml(project.idea)}`;
+ $('scenes').innerHTML=project.scenes.map(s=>`<article class="scene"><div class="scene-top"><span>SCENE ${s.scene} · ${s.name}</span><span>${s.time}</span></div><p><b>Visual:</b> ${escapeHtml(s.visual)}</p><p><b>Dialog:</b> ${escapeHtml(s.dialog)}</p><p class="prompt"><b>Prompt video:</b> ${escapeHtml(s.prompt)}</p><button class="btn secondary small" data-copy="${s.scene}">Salin prompt adegan</button></article>`).join('');
+ document.querySelectorAll('[data-copy]').forEach(b=>b.addEventListener('click',()=>copy(project.scenes[Number(b.dataset.copy)-1].prompt)));
+}
+async function copy(s){try{await navigator.clipboard.writeText(s);$('status').textContent='Berhasil disalin.';$('status').classList.remove('hidden')}catch(e){const t=document.createElement('textarea');t.value=s;document.body.appendChild(t);t.select();document.execCommand('copy');t.remove();$('status').textContent='Teks disalin.';$('status').classList.remove('hidden')}}
+$('generate').addEventListener('click',()=>{project=makeProject();localStorage.setItem('lollyDramaProject',JSON.stringify(project));render();$('status').textContent='Paket drama berhasil dibuat. Buka tab Hasil Produksi.';$('status').classList.remove('hidden');document.querySelector('[data-tab="result"]').click();});
+$('copyAll').addEventListener('click',()=>{if(!project)return;copy(project.scenes.map(s=>`SCENE ${s.scene} (${s.time})\n${s.name}\nVisual: ${s.visual}\nDialog: ${s.dialog}\nPrompt: ${s.prompt}`).join('\n\n'))});
+function download(name,content,type){const a=document.createElement('a');const url=URL.createObjectURL(new Blob([content],{type}));a.href=url;a.download=name;a.click();URL.revokeObjectURL(url)}
+$('downloadTxt').addEventListener('click',()=>{if(project)download('lolly-drama-'+Date.now()+'.txt',project.scenes.map(s=>`SCENE ${s.scene} | ${s.time}\n${s.name}\nVISUAL: ${s.visual}\nDIALOG: ${s.dialog}\nPROMPT: ${s.prompt}`).join('\n\n'),'text/plain')});
+$('downloadJson').addEventListener('click',()=>{if(project)download('lolly-drama-project.json',JSON.stringify(project,null,2),'application/json')});
+try{const saved=localStorage.getItem('lollyDramaProject');if(saved){project=JSON.parse(saved);render();}}catch(e){}
+if('serviceWorker' in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+</script>
+</body></html>
